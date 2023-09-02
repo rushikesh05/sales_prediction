@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-size:27px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size:40px;
+            color: blue;
+       
+            padding: 20px;  
+    }
+
+        form {
+            background-color: #fff; /* White background for the form */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the form */
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+           
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px;
+           
+                width:80%;
+                padding: 10px;
+                margin-bottom: 20px;
+                font-size:24px;
+                background: linear-gradient(45deg, white 70%, blue 30%); /* Blue and purple mix */
+            
+                border: 2px solid #ccc;
+                border-radius: 5px;
+            
+        }
+
+        input[type="submit"] {
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size:30px;
+            border-radius: 5px;
+            margin-left:35%;
+            cursor: pointer;
+            box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.2);
+            background-color:blue;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF00FF; /* Darker blue on hover */
+        }
+
+        p  {
+            color: #333;
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size:40px;
+            background: linear-gradient(45deg, blue 40%, black 60%); /* Blue and purple mix */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 20px;  
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Sales Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="TV">TV Advertising Expense:</label>
+        <input type="text" name="TV" required><br><br>
+        <label for="Radio">Radio Advertising Expense:</label>
+        <input type="text" name="Radio" required><br><br>
+        <label for="Newspaper">Newspaper Advertising Expense:</label>
+        <input type="text" name="Newspaper" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+    <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
